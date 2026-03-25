@@ -12,6 +12,7 @@ Then it takes all the files (from the local directory) and adds them to the USB 
 
 - Having Python 3.14.4 or above is required (3.14.3 or less has not been tested)
 - Until now the only thing that is needed to make this work it to have windows. 
+- Other requirements on requirements.txt
 - Other than that the only thing needed is to download it and write your paths on the 'config.ini' file.
 
 
