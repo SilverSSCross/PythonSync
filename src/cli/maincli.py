@@ -1,43 +1,58 @@
 import os
-from mycode import remotetopc
-from mycode import pctoremote
-from cli import configsubcli
+from core import remotetopc
+from core import pctoremote
+from cli import ConfigSubCli
 
-os.system("color 0A")
-menus = ["1", "2", "3", "4"]
-running = True
-while running:
-    print()
-    print(" =========================")
-    print(" USB SYSTEM SINCRONITATION")
-    print(" =========================")
-    print()
-    print(" 1) Synchronize Local to external")
-    print(" 2) Synchronize external to Local")
-    print(" 3) Configuration")
-    print(" 4) Exit")
-    print()
-    print(" Select an option [1-4]:", end="")
+class MainCLI:
+    
+    def __init__(self):
+        self.menus = ["1", "2", "3", "4"]
+        self.running = True
+        os.system("color 0A")
 
-    option = input().strip()
+    def show_menu(self):
+        print()
+        print(" =========================")
+        print(" USB SYSTEM SINCRONITATION")
+        print(" =========================")
+        print()
+        print(" 1) Synchronize Local to external")
+        print(" 2) Synchronize external to Local")
+        print(" 3) Configuration")
+        print(" 4) Exit")
+        print()
+        print(" Select an option [1-4]:", end="")
 
-    if option == "":
-        print("No input provided. Please enter a valid option.")
-        continue
+    def handle_option(self, option):
+        match option:
+            case "1":
+                pctoremote.pctoremotefunction()
+            case "2":
+                remotetopc.remotetopcfunction()
+            case "3":
+                subcli=ConfigSubCli()
+                subcli.run()
+            case "4":
+                print("Exiting the program. Goodbye!")
+                self.running = False
 
-    if option not in menus:
-        print("Invalid option. Please select a valid option from the menu.")
-        continue
+    def run(self):
+        while self.running:
+            self.show_menu()
+            option = input().strip()
 
-    match option:
-        case "1":
-            pctoremote.pctoremotefunction()
-        case "2":
-            remotetopc.remotetopcfunction()
-        case "3":
-            configsubcli.configsubclifunction()
-        case "4":
-            print("Exiting the program. Goodbye!")
-            running = False
-        case default:
-            print("Invalid option. Please select a valid option.[1, 2, 3, 4]")
+            if option == "":
+                print("No input provided. Please enter a valid option.")
+                continue
+
+            if option not in self.menus:
+                print("Invalid option. Please select a valid option from the menu.")
+                continue
+
+            self.handle_option(option)
+
+
+# --- Punto de entrada ---
+if __name__ == "__main__":
+    app = MainCLI()
+    app.run()
