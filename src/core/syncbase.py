@@ -1,3 +1,4 @@
+import sys
 from configobj import ConfigObj
 from pathlib import Path
 from config import FileOrganize
@@ -18,8 +19,15 @@ class SyncBase:
         
     def getData(self):
         #! Get list of paths
-        #Esta linea esta buscando 1 por encima (en vez de buscar en 'core' busca en 'src')
-        find_config = Path(__file__).resolve().parent / 'config.ini'
+        #Comprueba si es un .exe o por linea de comandos
+        if getattr(sys, 'frozen', False):
+        # Ejecutando como .exe empaquetado
+            exe_dir = Path(sys.executable).parent
+        else:
+    # Ejecutando como script Python
+            exe_dir = Path(__file__).resolve().parent
+        
+        find_config = exe_dir / 'config.ini'
 
         config = ConfigObj(str(find_config), encoding='UTF8')
         #Saca la parte izquierda de las variables en config.ini

@@ -9,7 +9,7 @@ class RemoteToPc(SyncBase):
         for directory in self.values:
 
             if os.path.exists(directory):
-                list_copyfiles = self.fileorganize.copy_files(directory, self.localdirectory, "mp3", 0)
+                list_copyfiles = self.fileorganize.copy_files(directory, self.localdirectory, "mp3", 1)
                 list_deletefiles = self.fileorganize.delete_files(directory, self.localdirectory, "mp3")
 
                 # Log the copied and deleted files

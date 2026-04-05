@@ -1,7 +1,6 @@
 import os
-from core import remotetopc
-from core import pctoremote
-from cli import ConfigSubCli
+from core import RemoteToPc
+from core import PcToRemote
 
 class MainCLI:
     
@@ -9,6 +8,10 @@ class MainCLI:
         self.menus = ["1", "2", "3", "4"]
         self.running = True
         os.system("color 0A")
+        from cli import ConfigSubCli
+        self.subcli=ConfigSubCli()
+        self.pctoremote=PcToRemote()
+        self.remotetopc=RemoteToPc()
 
     def show_menu(self):
         print()
@@ -26,12 +29,11 @@ class MainCLI:
     def handle_option(self, option):
         match option:
             case "1":
-                pctoremote.pctoremotefunction()
+                self.pctoremote.run()
             case "2":
-                remotetopc.remotetopcfunction()
+                self.remotetopc.run()
             case "3":
-                subcli=ConfigSubCli()
-                subcli.run()
+                self.subcli.run()
             case "4":
                 print("Exiting the program. Goodbye!")
                 self.running = False

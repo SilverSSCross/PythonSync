@@ -30,7 +30,7 @@ class ConfigSubCli:
     
     def run(self):
         while self.running:
-            self.show_menu
+            self.show_menu()
             
             option = input().strip()
             if option == "":

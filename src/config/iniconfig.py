@@ -1,9 +1,11 @@
 from configobj import ConfigObj
 from pathlib import Path
+import sys
 
 class IniConfig:
     def __init__(self):
-        find_config = Path(__file__).resolve().parents[2] / 'config.ini'
+        exe_dir = Path(sys.executable).parent
+        find_config = exe_dir / 'config.ini'
         self.config = ConfigObj(str(find_config), encoding='UTF8') #Already reads the file
         
 
