@@ -1,3 +1,5 @@
+from core import pctoremote, remotetopc
+
 def main_menu():
     print()
     print(" =========================")
@@ -11,4 +13,5 @@ def main_menu():
     print()
     print(" Select an option [1-4]:", end="")
     
-
+def option_handler():
+    pass
