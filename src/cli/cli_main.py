@@ -1,3 +1,5 @@
+from core import pctoremote, remotetopc
+
 def main_menu():
     print()
     print(" =========================")

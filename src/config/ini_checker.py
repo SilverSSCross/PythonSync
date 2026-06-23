@@ -10,8 +10,8 @@ def add_inicontents():
         'localdirectory': ''
     },
     'Remote_variables': {
-        'remotedirectory1': '',
-        'remotedirectory2': ''
+        'remotedirectory1': None,
+        'remotedirectory2': None
     }
     }
     return DEFAULT_CONFIG

@@ -50,7 +50,7 @@ def copy_files(origin_directory, destiny_directory, file_extension):
             modify_destiny=datetime.datetime.fromtimestamp(destiny_info.st_mtime)
         except FileNotFoundError:
             modify_destiny=None
-            print(f"Doesn't exist")
+            print(f"Does not exist on destination")
         
         if not destiny_path.exists() or modify_origin>modify_destiny:
             try:
