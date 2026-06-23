@@ -1,20 +1,18 @@
-def main_menu():
+def config_cli():
     print()
     print(" =========================")
     print(" USB SYSTEM SINCRONITATION")
     print(" =========================")
     print()
-    print(" 1) Synchronize")
-    print(" 2) Configuration")
-    print(" 3) Exit")
-    print()
-    print(" Select an option :", end="")
+    print("Configuration Menu")
+    print("1) Set max remote variables")
+    print("9) Back to main menu")
+    print("Select an option :", end="")
+    
     
 
 def pick_option():
-    option=input().strip()
-    
-    if option
+    pass
 
 
 def handle_option():
