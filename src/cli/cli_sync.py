@@ -1,3 +1,5 @@
+from core import pctoremote, remotetopc
+from config import ini_checker
 def sync_menu():
     print()
     print(" =========================")
@@ -12,10 +14,32 @@ def sync_menu():
     
 
 def pick_option():
-    pass
+    option=input().strip()
+    
+    if option.isdigit():
+        return int(option)
+    else:
+        print("Enter a valid number")
 
 
 def handle_option():
-    pass
-    
+    selected_option=pick_option()
+    match selected_option:
+        case 1:
+            pctoremote.pctoremote_function(ini_checker.find_iniconfig())   
+            return True    
+        case 2:
+            remotetopc.remotetopc_funciton(ini_checker.find_iniconfig())
+            return True 
+        case 3:
+            return False
+        case _:
+            print("Invalid Option")
+            return True
 
+
+def main_func():
+    running=True
+    while running:
+        sync_menu()
+        running=handle_option()

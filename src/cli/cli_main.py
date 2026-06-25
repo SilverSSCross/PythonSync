@@ -1,4 +1,4 @@
-from core import pctoremote, remotetopc
+from cli import cli_options, cli_sync
 
 def main_menu():
     print()
@@ -16,8 +16,30 @@ def main_menu():
 def pick_option():
     option=input().strip()
     
-    if option
+    if option.isdigit():
+        return int(option)
+    else:
+        print("Enter a valid number")
 
 
 def handle_option():
-    pass
+    selected_option=pick_option()
+    match selected_option:
+        case 1:
+            cli_sync.main_func()           
+            return True
+        case 2:
+            cli_options.main()
+            return True
+        case 3:
+            print("Exiting the program. Goodbye!")
+            return False
+        case _:
+            print("Invalid Option")
+            return True
+        
+def main():
+    running=True
+    while running:
+        main_menu()
+        running=handle_option()
