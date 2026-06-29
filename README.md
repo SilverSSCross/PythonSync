@@ -8,10 +8,11 @@ Then it takes all the files (from the local directory) and adds them to the USB 
 - The other function is the same but reversed it takes from the USB and moves to local with the same functions.
 
 
-## INSTALATION
+## INSTALATION REQUIREMENTS
 
 - Having Python 3.14.4 or above is required (3.14.3 or less has not been tested)
-- Until now the only thing that is needed to make this work it to have windows. 
-- Other than that the only thing needed is to download it and write your paths on the 'config.ini' file.
+- - configobj - 5.0.9
+- Windows is needed to use the .bat file 
+- Is needed to write your paths on the 'config.ini' file (If the file doesn't exist it is created automatically on launch).
 
 
