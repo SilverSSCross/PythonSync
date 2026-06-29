@@ -2,6 +2,12 @@
 
 This has been started halfway (or almost at the ending of this little proyect so this will start from this last change)
 
+
+## [1.2.0] - 29-06-2026
+### Changed
+- The whole code was overhauled. Same functions different organization.
+- Changed the CLI. Now it is better organized.
+
 ## [1.1.0] - 14-08-2025
 ### Added
 - Now user can decide how many external devices can be registered. Each one has to be registered by hand (No limits has been tested)
